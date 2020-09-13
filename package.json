@@ -1,0 +1,49 @@
+{
+  "name": "test2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rollup.config.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./scripts/*.js",
+    "fix": "eslint ./scripts/*.js --fix",
+    "build": "tsc && rollup -c"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run test && npm run lint"
+    }
+  },
+  "lint-staged": {
+    "scripts/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "build/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "@7.4.5",
+    "@babel/preset-env": "@7.4.5",
+    "@types/node": "^14.10.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "24.8.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.11",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2"
+  }
+}
