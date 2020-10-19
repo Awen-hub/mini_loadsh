@@ -1,5 +1,10 @@
 /** @format */
-export function arrayMap(array = [], iteratee, thisArg) {
+
+interface iterateeParm {
+  (value?: any, index?: number, array?: any[]): any[]
+}
+
+export function arrayMap(array: any[] = [], iteratee: iterateeParm, thisArg?: any): any[] {
   let iterateeCopy
   if (thisArg) {
     iterateeCopy = iteratee.prototype
